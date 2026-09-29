@@ -5,11 +5,11 @@ import { addBlog, getBlogsByQuery, increaseLike } from "../services/blogs";
 import { redirect } from "next/navigation";
 
 export const createBlog = async (formData: FormData) => {
-  const content = formData.get("content") as string;
+  const content = formData.get("title") as string;
   const author = formData.get("author") as string;
   const url = formData.get("url") as string;
-  const like = 0;
-  addBlog(content, author, url, like);
+  const likes = 0;
+  await addBlog(content, author, url, likes);
 
   revalidatePath("/blogs");
   redirect("/blogs");

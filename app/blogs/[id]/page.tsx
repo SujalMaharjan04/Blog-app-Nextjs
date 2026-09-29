@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 const BlogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
-  const blog = getBlogById(Number(id));
+  const blog = await getBlogById(Number(id));
 
   if (!blog) {
     notFound();
@@ -14,7 +14,7 @@ const BlogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
     <div>
       <h1>{blog.title}</h1>
       <p>{blog.url}</p>
-      <p>likes: {blog.like}</p>
+      <p>likes: {blog.likes}</p>
       <form action={upLike}>
         <input type="hidden" name="id" value={blog.id} />
         <button type="submit">Like</button>

@@ -8,7 +8,8 @@ const Blogs = async ({
   searchParams: Promise<{ filter?: string }>;
 }) => {
   const { filter } = await searchParams;
-  const blogs = getBlogsByQuery(filter ?? "");
+  const blogs = await getBlogs();
+  // const blogs = await getBlogsByQuery(filter ?? "");
   return (
     <div>
       <h1>Blogs</h1>
@@ -18,7 +19,7 @@ const Blogs = async ({
             <Link href={`/blogs/${blog.id}`}>
               {blog.title} By {blog.author}
             </Link>
-            <p>{blog.like}</p>
+            <p>{blog.likes}</p>
           </li>
         ))}
       </ul>

@@ -6,8 +6,8 @@ const NewBlog = () => {
       <h1>Create New Blogs</h1>
       <form action={createBlog}>
         <label>
-          Content:
-          <input type="text" name="content" required />
+          Title:
+          <input type="text" name="title" required />
         </label>
         <label>
           Author:
