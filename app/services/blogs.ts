@@ -30,7 +30,7 @@ export const getBlogs = async () => {
   return db.query.blogs.findMany();
 };
 
-let nextId = 4;
+// let nextId = 4;
 
 export const addBlog = async (
   title: string,
