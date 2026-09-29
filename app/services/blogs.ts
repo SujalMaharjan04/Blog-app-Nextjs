@@ -47,12 +47,12 @@ export const getBlogById = (id: number) => {
   });
 };
 
-export const increaseLike = (id: number) => {
-  const blog = blogs.find((b) => b.id === id);
-  if (blog) {
-    blog.like++;
-  }
-};
+// export const increaseLike = (id: number) => {
+//   const blog = blogs.find((b) => b.id === id);
+//   if (blog) {
+//     blog.like++;
+//   }
+// };
 
 export const getBlogsByQuery = async (search: string) => {
   // const q = search.toLowerCase();
