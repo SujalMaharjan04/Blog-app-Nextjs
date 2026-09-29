@@ -1,4 +1,4 @@
-// import { upLike } from "@/app/actions/blogs";
+import { upLike } from "@/app/actions/blogs";
 import { getBlogById } from "@/app/services/blogs";
 import { notFound } from "next/navigation";
 
@@ -15,7 +15,7 @@ const BlogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
       <h1>{blog.title}</h1>
       <p>{blog.url}</p>
       <p>likes: {blog.likes}</p>
-      <form>
+      <form action={upLike}>
         <input type="hidden" name="id" value={blog.id} />
         <button type="submit">Like</button>
       </form>

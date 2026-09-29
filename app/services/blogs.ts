@@ -23,7 +23,7 @@
 // ];
 
 import { db } from "../../db";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { blogs } from "../../db/schema";
 
 export const getBlogs = async () => {
@@ -47,12 +47,12 @@ export const getBlogById = (id: number) => {
   });
 };
 
-// export const increaseLike = (id: number) => {
-//   const blog = blogs.find((b) => b.id === id);
-//   if (blog) {
-//     blog.like++;
-//   }
-// };
+export const increaseLike = async (id: number) => {
+  await db
+    .update(blogs)
+    .set({ likes: sql`${blogs.likes} + 1` })
+    .where(eq(blogs.id, id));
+};
 
 export const getBlogsByQuery = async (search: string) => {
   // const q = search.toLowerCase();
